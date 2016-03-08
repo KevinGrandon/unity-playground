@@ -9,6 +9,9 @@ public class Brick : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collision) {
 		timesHit++;
+		if (timesHit >= maxHits) {
+			Destroy (gameObject, 0.1f);
+		}
 	}
 
 	// Use this for initialization
