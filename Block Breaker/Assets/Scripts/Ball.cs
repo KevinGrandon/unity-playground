@@ -8,6 +8,14 @@ public class Ball : MonoBehaviour {
 	private Vector3 paddleToBallVector;
 	private Rigidbody2D body;
 
+
+	void OnCollision2D(Collision2D collision) {
+		Vector2 tweak = new Vector2 (Random.Range(0f, 0.2f), Random.Range(0f, 0.2f));
+		if (started) {
+			body.velocity += tweak;
+		}
+	}
+
 	// Use this for initialization
 	void Start () {
 		paddle = GameObject.FindObjectOfType<Paddle> ();
