@@ -11,7 +11,12 @@ public class Brick : MonoBehaviour {
 	private LevelManager levelMangager;
 	private bool isBreakable;
 
+	public AudioClip crack;
+	public AudioClip boing;
+
 	void OnCollisionEnter2D(Collision2D collision) {
+		AudioSource.PlayClipAtPoint (crack, transform.position);
+		AudioSource.PlayClipAtPoint (boing, transform.position);
 		if (isBreakable) {
 			HandleHits ();
 		}
